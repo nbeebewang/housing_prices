@@ -33,13 +33,11 @@ zillow_id = Nicasia_Zillow_ID
 
 
 ####################################################################################
-########  To save time, comment out all but the desired borough ####################
+########  get correct file location ################################################
 ####################################################################################
-bk = pd.read_csv("nyc_pluto_16v1/BK.csv")
-bx = pd.read_csv("nyc_pluto_16v1/BX.csv")
-mn = pd.read_csv("nyc_pluto_16v1/MN.csv")
-qn = pd.read_csv("nyc_pluto_16v1/QN.csv")
-si = pd.read_csv("nyc_pluto_16v1/SI.csv")
+
+dataframe = pd.read_csv("/Users/nbw/Desktop/cs109_project/nyc_pluto_16v1/MN.csv")
+
 ####################################################################################
 
 
@@ -58,15 +56,11 @@ for elt in keys_as_list:
         
 
 
-##################################################################
-########  CHANGE THIS TO THE CORRECT BOROUGH  ####################
-##################################################################
 
-address_list = bk['Address'].values
-zips = bk['ZipCode'].values
-res_status = bk['UnitsRes'].values
+address_list = dataframe['Address'].values
+zips = dataframe['ZipCode'].values
+res_status = dataframe['UnitsRes'].values
 
-##################################################################
 
 
 column_names = zillow_attribute_keys
@@ -75,7 +69,7 @@ column_names = zillow_attribute_keys
 #############################################
 ########  Name the file  ####################
 #############################################
-f = open('thing.csv', 'w')
+f = open('manhattan.csv', 'w')
 #############################################
 
 for elt in column_names:
@@ -108,6 +102,7 @@ for i in range(len(address_list)):
         try:
             result =  zillow_data.get_deep_search_results(address, zipcode)
         except:
+            result = None
             pass
 
         if result:
