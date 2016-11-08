@@ -4,8 +4,8 @@
 ####################################################################################
 ########  If you're not Nicasia, comment this out ##################################
 ####################################################################################
-import sys
-sys.path.append("/anaconda/lib/python2.7/site-packages")
+#import sys
+#sys.path.append("/anaconda/lib/python2.7/site-packages")
 ####################################################################################
 
 
@@ -29,14 +29,22 @@ Marina_Zillow_ID = "X1-ZWz19i20n69ukr_77v70"
 ########  Choose a zillow id from above to use ####################
 ###################################################################
 
+<<<<<<< HEAD
 zillow_id = "X1-ZWz1fihjrvm6ff_7yjzz"
+=======
+zillow_id = "X1-ZWz1fijiszo5jf_9d4gz"
+>>>>>>> 41793ffd32d0b00d989cf9d198d5a17a78f10c4e
 
 
 ####################################################################################
 ########  get correct file location ################################################
 ####################################################################################
 
+<<<<<<< HEAD
 dataframe = pd.read_csv("/Users/nbw/Desktop/cs109_project/nyc_pluto_16v1/QN.csv")
+=======
+dataframe = pd.read_csv("/Users/marinaadario/Desktop/cs109project/nyc_pluto_16v1/BK.csv")
+>>>>>>> 41793ffd32d0b00d989cf9d198d5a17a78f10c4e
 
 ####################################################################################
 
@@ -69,7 +77,11 @@ column_names = zillow_attribute_keys
 #############################################
 ########  Name the file  ####################
 #############################################
+<<<<<<< HEAD
 f = open('queens.csv', 'w')
+=======
+f = open('brooklyn10.csv', 'w')
+>>>>>>> 41793ffd32d0b00d989cf9d198d5a17a78f10c4e
 #############################################
 
 for elt in column_names:
@@ -82,7 +94,11 @@ data = []
 zillow_data = pyzillow.ZillowWrapper(zillow_id)
 
 
+<<<<<<< HEAD
 for i in range(13431, len(address_list)): 
+=======
+for i in range(, len(address_list)): 
+>>>>>>> 41793ffd32d0b00d989cf9d198d5a17a78f10c4e
     # elt==elt removes all NaNs bc NaNs dont equal themselves but everything else should
     # also removing all values that dont start with a number (eg when only a street is provided in the address)
     # remove all rows for which res_status > 0
