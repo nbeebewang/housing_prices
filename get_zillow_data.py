@@ -29,14 +29,14 @@ Marina_Zillow_ID = "X1-ZWz19i20n69ukr_77v70"
 ########  Choose a zillow id from above to use ####################
 ###################################################################
 
-zillow_id = MeiYin_Zillow_ID
+zillow_id = "X1-ZWz1fihjrvm6ff_7yjzz"
 
 
 ####################################################################################
 ########  get correct file location ################################################
 ####################################################################################
 
-dataframe = pd.read_csv("/Users/nbw/Desktop/cs109_project/nyc_pluto_16v1/MN.csv")
+dataframe = pd.read_csv("/Users/nbw/Desktop/cs109_project/nyc_pluto_16v1/QN.csv")
 
 ####################################################################################
 
@@ -69,8 +69,7 @@ column_names = zillow_attribute_keys
 #############################################
 ########  Name the file  ####################
 #############################################
-f = open('manhattan.csv', 'w')
-g = open('manhattan_errors', 'w')
+f = open('queens.csv', 'w')
 #############################################
 
 for elt in column_names:
@@ -83,7 +82,7 @@ data = []
 zillow_data = pyzillow.ZillowWrapper(zillow_id)
 
 
-for i in range(len(address_list)): 
+for i in range(13431, len(address_list)): 
     # elt==elt removes all NaNs bc NaNs dont equal themselves but everything else should
     # also removing all values that dont start with a number (eg when only a street is provided in the address)
     # remove all rows for which res_status > 0
@@ -103,7 +102,6 @@ for i in range(len(address_list)):
             result =  zillow_data.get_deep_search_results(address, zipcode)
         except:
             result = None
-            g.write(str(i) + ",")
             pass
 
         if result:
@@ -115,6 +113,7 @@ for i in range(len(address_list)):
     if i % 1000 == 0:
         print i
 
+print "done"
 f.close()
 
 
